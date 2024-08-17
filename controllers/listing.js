@@ -26,6 +26,7 @@ module.exports.showListing = async (req, res) => {
     return res.redirect("/listings");
   }
 
+  listing.description = listing.description.trim();
   res.render("listings/show.ejs", { listing });
 };
 
@@ -41,8 +42,7 @@ module.exports.createListing = async (req, res, next) => {
   newListing.image = { url, filename };
   newListing.geometry = coordinates;
 
-  let savedListing = await newListing.save();
-  console.log(savedListing);
+  await newListing.save();
 
   req.flash("success", "Listed Successfully !!");
   res.redirect("/listings");
@@ -65,6 +65,7 @@ module.exports.renderEditForm = async (req, res) => {
   } else {
     originalUrl = originalUrl.replace("/upload", "/upload/h_200,w_300");
   }
+
   res.render("listings/edit.ejs", { listing, originalUrl, isOnCloud });
 };
 
@@ -82,7 +83,6 @@ module.exports.updateListing = async (req, res) => {
   if (listing.location !== req.body.listing.location) {
     let coordinates = await fetchCoordinates(req);
     listing.geometry = coordinates;
-    console.log(`Location Updated`);
   }
 
   await listing.save();
