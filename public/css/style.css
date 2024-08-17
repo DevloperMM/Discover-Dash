@@ -121,3 +121,16 @@ body {
   width: 100vh;
   left: 50px;
 }
+
+.mapboxgl-popup-content {
+  width: fit-content;
+  margin: 0;
+  padding: 10px !important;
+  white-space: nowrap;
+}
+
+.pop-content {
+  padding-right: 10px;
+  margin: 0;
+  font-size: 16px;
+}
