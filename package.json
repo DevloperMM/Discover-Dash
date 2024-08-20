@@ -2,16 +2,16 @@
   "engines": {
     "node": "20.15.0"
   },
-  "name": "wanderlust",
+  "name": "discover-dash",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mangal_Murti_Varshney",
   "license": "ISC",
-  "description": "",
+  "description": "first ever developed website for listing locations and travel planning",
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.16.0",
     "axios": "^1.7.4",
