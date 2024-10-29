@@ -21,7 +21,7 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 // const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-const db_URL = process.env.ATLASDB_URL;
+const db_URL = `${process.env.ATLASDB_URL}/${process.env.DB_NAME}`;
 
 main()
   .then(() => {
@@ -71,8 +71,8 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
 
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
